@@ -1,16 +1,20 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Registro from "./Registro/Registro";  
+import React, { useState } from "react";
+import Registro from "./Registro/Registro";
+import { InicioSesion } from "./Inicio de sesión/iniciodesesion";
+import { PaginaInicial } from "./Pagina inicial/paginainicial";
 
 function App() {
-return (
-    <BrowserRouter>
-        <nav>
-            <Link to="/">Inicio</Link> |
-        </nav>
-        <Routes>
-            <Route path="/registro" element={<Registro />} />
-        </Routes>
-    </BrowserRouter>
-);
+    const [usuario, setUsuario] = useState("");
+
+    return (
+        <div>
+            {/* Esto es para que si usuario tiene un valor muestra la pagina inicial */}
+            {usuario.length > 0
+                ? <PaginaInicial usuario={usuario} />
+                : <InicioSesion setUsuario={setUsuario} />
+            }
+        </div>
+    );
 }
+
 export default App;
