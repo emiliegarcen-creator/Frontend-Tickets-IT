@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Registro from "./Registro/Registro";
+import { useState } from "react";
 import { InicioSesion } from "./Inicio de sesión/iniciodesesion";
 import { PaginaInicial } from "./Pagina inicial/paginainicial";
 
