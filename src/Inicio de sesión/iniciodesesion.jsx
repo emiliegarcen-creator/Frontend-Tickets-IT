@@ -113,7 +113,4 @@ export function InicioSesion({
 
     );
 }
-
-export default InicioSesion;
-
 export default InicioSesion;
