@@ -1,46 +1,119 @@
 import { useState } from "react";
 
-export function InicioSesion({ setUsuario }) {
+export function InicioSesion({
+    setUsuario,
+    setEmail,
+    setRol,
+    cambiarPagina
+}) {
+
     const [nombreUsuario, setNombreUsuario] = useState("");
     const [password, setPassword] = useState("");
-    // Es para guardar los datos del formulario y evitar que se recargue la página
+
+
     const handleSubmit = (e) => {
+
         e.preventDefault();
 
-        if (nombreUsuario === "" || password === "") {
+        console.log("BOTÓN INICIAR SESIÓN PRESIONADO");
+
+
+        // Validar campos
+        if (
+            nombreUsuario === "" ||
+            password === ""
+        ) {
+
             alert("Todos los campos son obligatorios.");
+
             return;
         }
 
+
+        // Guardar usuario
         setUsuario(nombreUsuario);
+
+        setEmail(nombreUsuario + "@gmail.com");
+
+        setRol("Cliente");
+
+
+        console.log("LOGIN CORRECTO");
+
+        console.log("AHORA VOY A INICIO");
+
+
+        // Ir a la página principal
+        cambiarPagina("inicio");
+
     };
 
+
     return (
+
         <section>
-            <h1>Login</h1>
+
+            <h1>
+                Login
+            </h1>
+
 
             <form onSubmit={handleSubmit}>
+
                 <input
                     type="text"
                     placeholder="Nombre de usuario"
                     value={nombreUsuario}
-                    // CAPTURA LO QUE ESCRIBAMOS EN EL INPUT
-                    onChange={(e) => setNombreUsuario(e.target.value)}
+                    onChange={(e) =>
+                        setNombreUsuario(e.target.value)
+                    }
                 />
+
+
+                <br />
+                <br />
+
 
                 <input
                     type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) =>
+                        setPassword(e.target.value)
+                    }
                 />
+
+
+                <br />
+                <br />
+
 
                 <button type="submit">
                     Iniciar sesión
                 </button>
+
             </form>
+
+
+            <br />
+
+
+            <button
+                type="button"
+                onClick={() => {
+                    console.log("BOTÓN CREAR CUENTA");
+
+                    cambiarPagina("registro");
+                }}
+            >
+                Crear una cuenta
+            </button>
+
         </section>
+
     );
 }
+
+export default InicioSesion;
 
 export default InicioSesion;
