@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-
+import  {useEffect, useState } from "react";
 import Registro from "./Registro/Registro";
 import { InicioSesion } from "./Inicio de sesión/iniciodesesion";
-import PaginaInicialCliente from "./Paginainicialcliente/paginainicialcliente";
-import CrearTicket from "./Crear Ticket/CrearTicket";
+import PaginaInicialCliente from "./Pagina inicial/paginainicialcliente";
 import TicketMantenimiento from "./Ticket Mantenimiento/TicketMantenimiento";
 import Perfil from "./Perfil/Perfil";
+import CrearTicket from "./Crear Ticket/CrearTicket";
 
 function App() {
 
